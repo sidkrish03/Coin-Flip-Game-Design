@@ -3,14 +3,8 @@ package com.java.design.misc.parkinglot.mode;
 import com.java.design.misc.parkinglot.OutputPrinter;
 import com.java.design.misc.parkinglot.commands.CommandExecutorFactory;
 import com.java.design.misc.parkinglot.model.Command;
-import com.java.io.BufferedReader;
-import com.java.io.File;
-import com.java.io.FileNotFoundException;
-import com.java.io.FileReader;
-import com.java.io.IOException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Mode running in which input commands are given from a file.

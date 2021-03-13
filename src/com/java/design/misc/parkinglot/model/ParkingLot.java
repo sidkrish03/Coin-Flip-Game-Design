@@ -42,11 +42,7 @@ public class ParkingLot {
 
     private Slot getSlot(final Integer slotNumber) {
         if(slotNumber > getCapacity() || slotNumber <= 0) {
-            try {
-                throw new InvalidSlotException();
-            } catch (InvalidSlotException e) {
-                e.printStackTrace();
-            }
+            throw new InvalidSlotException();
         }
 
         final Map<Integer, Slot> allSlots = getSlots();
@@ -83,7 +79,7 @@ public class ParkingLot {
      * @return Freed slot.
      */
 
-    public Slot makeSlotFree(final Car car, final Integer slotNumber) {
+    public Slot makeSlotFree(final Integer slotNumber) {
         final Slot slot = getSlot(slotNumber);
         slot.unassignCar();
         return slot;

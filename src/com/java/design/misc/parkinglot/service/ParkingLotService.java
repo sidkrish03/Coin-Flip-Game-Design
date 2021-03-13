@@ -49,7 +49,7 @@ public class ParkingLotService {
      * @return Slot number in which the car is parked.
      */
 
-    public Integer park(final Car car) {
+    public Integer park(final Car car) throws ParkingLotException {
         validateParkingLotExists();
         final Integer nextFreeSlot = parkingStrategy.getNextSlot();
         parkingLot.park(car, nextFreeSlot);
@@ -64,7 +64,7 @@ public class ParkingLotService {
      * @param slotNumber Slot number to be freed.
      */
 
-    public void makeSlotFree(final Integer slotNumber) {
+    public void makeSlotFree(final Integer slotNumber) throws ParkingLotException {
         validateParkingLotExists();
         parkingLot.makeSlotFree(slotNumber);
         parkingStrategy.addSlot(slotNumber);
@@ -74,7 +74,7 @@ public class ParkingLotService {
      * Gets the list of all the slots which are occupied.
      */
 
-    public List<Slot> getOccupiedSlots() {
+    public List<Slot> getOccupiedSlots() throws ParkingLotException {
         validateParkingLotExists();
         final List<Slot> occupiedSlotsList = new ArrayList<>();
         final Map<Integer, Slot> allSlots = parkingLot.getSlots();
@@ -95,7 +95,7 @@ public class ParkingLotService {
      * Helper method to validate whether the parking lot exists or not. This is used to validate the existence of
      * parking lot before doing any operation on it.
      */
-    private void validateParkingLotExists() {
+    private void validateParkingLotExists() throws ParkingLotException {
         if(parkingLot == null) {
             throw new ParkingLotException("Parking lot does not exist.");
         }
