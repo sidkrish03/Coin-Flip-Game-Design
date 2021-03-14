@@ -13,8 +13,7 @@ import java.util.stream.Collectors;
 public class ColorToRegNumberCommandExecutor extends CommandExecutor {
     public static String COMMAND_NAME = "registration_numbers_for_cars_with_colour";
 
-    public ColorToRegNumberCommandExecutor(
-            final ParkingLotService parkingLotService, final OutputPrinter outputPrinter) {
+    public ColorToRegNumberCommandExecutor(final ParkingLotService parkingLotService, final OutputPrinter outputPrinter) {
         super(parkingLotService, outputPrinter);
     }
 
@@ -42,4 +41,4 @@ public class ColorToRegNumberCommandExecutor extends CommandExecutor {
             outputPrinter.printWithNewLine(result);
         }
     }
-}}
+}

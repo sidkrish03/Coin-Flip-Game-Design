@@ -11,7 +11,7 @@ import java.util.Optional;
  * Executor to handle command of fetching slot number of a car with a given registration number.
  */
 
-public class SlotForRegNumberCommandExecutor {
+public class SlotForRegNumberCommandExecutor extends CommandExecutor {
     public static String COMMAND_NAME = "slot_number_for_registration_number";
 
     public SlotForRegNumberCommandExecutor(final ParkingLotService parkingLotService, final OutputPrinter outputPrinter) {

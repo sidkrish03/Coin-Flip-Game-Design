@@ -1,16 +1,18 @@
 package com.java.design.misc.parkinglot.commands;
 
+import com.java.design.misc.parkinglot.OutputPrinter;
 import com.java.design.misc.parkinglot.model.Command;
 import com.java.design.misc.parkinglot.service.ParkingLotService;
-import com.java.design.misc.parkinglot.OutputPrinter;
+import com.java.design.misc.parkinglot.validator.IntegerValidator;
+
 import java.util.List;
 
 /**
  * Executor to handle command of freeing of slot from a car.
  */
 
-public class LeaveCommandExecutor {
-    public static final String COMMAND_NAME = "park";
+public class LeaveCommandExecutor extends CommandExecutor {
+    public static final String COMMAND_NAME = "leave";
 
     public LeaveCommandExecutor(final ParkingLotService parkingLotService, final OutputPrinter outputPrinter) {
         super(parkingLotService, outputPrinter);
@@ -33,7 +35,7 @@ public class LeaveCommandExecutor {
      * {@inheritDoc}
      */
     @Override
-    public void exception(final Command command) {
+    public void execute(final Command command) {
         final int slotNumber = Integer.parseInt(command.getParams().get(0));
         parkingLotService.makeSlotFree(slotNumber);
         outputPrinter.printWithNewLine("Slot number " + slotNumber + " is free");

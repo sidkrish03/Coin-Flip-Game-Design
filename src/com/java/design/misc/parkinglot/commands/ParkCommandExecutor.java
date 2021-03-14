@@ -10,10 +10,10 @@ import com.java.design.misc.parkinglot.service.ParkingLotService;
  * Executor to handle command of parking a car into the parking lot. This outputs the alloted slot in which the car
  * is parked.
  */
-public class ParkCommandExecutor {
+public class ParkCommandExecutor extends CommandExecutor {
     public static String COMMAND_NAME = "park";
 
-    public ParkingCommandExecutor(final ParkingLotService parkingLotService, final OutputPrinter outputPrinter) {
+    public ParkCommandExecutor(final ParkingLotService parkingLotService, final OutputPrinter outputPrinter) {
         super(parkingLotService, outputPrinter);
     }
 
@@ -36,7 +36,7 @@ public class ParkCommandExecutor {
             final Integer slot = parkingLotService.park(car);
             outputPrinter.printWithNewLine("Allocated slot number: " + slot);
         } catch(NoFreeSlotAvailableException exception) {
-            output.Printer.parkingLotFull();
+            outputPrinter.parkingLotFull();
         }
     }
 }
