@@ -1,4 +1,4 @@
-package com.java.design.game.coinflip;
+package com.java.design.games.coinflip;
 
 public class CoinFlip {
     Player[] players = new Player[2];

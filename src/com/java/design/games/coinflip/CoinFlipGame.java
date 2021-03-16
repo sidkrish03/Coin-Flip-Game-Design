@@ -1,4 +1,4 @@
-package com.java.design.game.coinflip;
+package com.java.design.games.coinflip;
 import java.util.Scanner;
 
 public class CoinFlipGame {
