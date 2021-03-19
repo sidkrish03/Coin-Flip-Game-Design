@@ -1,5 +1,7 @@
 package com.java.design.games;
 
+import com.java.design.games.cards.model.CardGamePlayer;
+import com.java.design.games.cards.model.Deck;
 import com.java.design.games.minesweeper.game.Minesweeper;
 import com.java.design.games.minesweeper.model.Board;
 import com.java.design.games.minesweeper.model.DifficultyLevel;
@@ -44,5 +46,28 @@ public class Main {
 
     private static void playCoinFlip() {
 
+    }
+
+    public static void playCardGame() {
+        Deck testDeck = new Deck();
+        testDeck.shuffleDeck();
+
+        //d.printDeck();
+
+        //Card a = d.removeTopCard();
+        //a.printThisCard();
+
+        //Hand testHand = testDeck.dealHand(5);
+        //testHand.printHand();
+
+        CardGamePlayer testPlayer1 = new CardGamePlayer(1);
+        testPlayer1.setHand(testDeck.dealHand(26));
+        testPlayer1.printCurrentHand();
+
+        CardGamePlayer testPlayer2 = new CardGamePlayer(2);
+        testPlayer2.setHand(testDeck.dealHand(26));
+        testPlayer2.printCurrentHand();
+
+        System.out.println("Size of deck now: " + testDeck.getSize());
     }
 }
