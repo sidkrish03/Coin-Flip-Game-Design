@@ -9,15 +9,6 @@ public class MineSweeperPlayer {
         this.name = newName;
     }
 
-//    // Decide the winner
-//    public void didPlayerWin(final Board board) {
-//        if(board) {
-//            System.out.println(name + " Won the game at " + difficultyLevel);
-//        } else {
-//            System.out.println(name + " Lost the game at " + difficultyLevel);
-//        }
-//    }
-
     public static String getPlayerNameFromUser() throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your name: ");
