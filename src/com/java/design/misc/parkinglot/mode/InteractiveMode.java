@@ -32,7 +32,7 @@ public class InteractiveMode {
             processCommand(command);
 
             // Improvement - Can move to exit command executor instead of this hard code to kill the process
-            if(command.getCommandName()).equals(ExitCommandExecutor.COMMAND_NAME) {
+            if(command.getCommandName().equals(ExitCommandExecutor.COMMAND_NAME)) {
                 break;
             }
         }
