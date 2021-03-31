@@ -82,6 +82,27 @@ public class PlayController {
                 System.out.println(" Player 1 can play now. ");
                 break;
         }
+
+        switch ( didPlayerWin() ) {
+            case 1: // Player 1 wins
+                player1.addToHand(table.pickupCards());
+                this.gameState = GameState.STABLE;
+                System.out.println(" Player 1 wins this round! Now Player 1 may pick up cards. ");
+            case 2: // Dealer wins
+                player2.addToHand(table.pickupCards());
+                this.gameState = GameState.STABLE;
+                System.out.println(" Dealer wins this round! Now Player 1 may pick up cards. ");
+                break;
+            case -1: // Tie
+                // No player won this round yet, there is a tie.
+                // Put one card out there face down
+                // Allow the player to perform the play action again
+                this.gameState = GameState.PLAYING;
+                System.out.println(" No player won this round yet, it's a tie! ");
+                System.out.println(" Dealer to put one card out there face down. ");
+                System.out.println(" Player 1 can play now. ");
+                break;
+        }
     }
 
     public int whoWon() {
@@ -100,6 +121,29 @@ public class PlayController {
             System.out.println(" It's a tie! ");
             return -1;
         }
+    }
+
+    /**
+     * This method determines winners for Black Jack
+     * since Black Jack depends only on individual games involving the dealer with each player
+     * and there is no comparison between two players whatsoever
+     * @return Winner
+     */
+    public int didPlayerWin() {
+        if(table.getSideCards(1).get(table.getSideCards(1).size() - 1).value
+                > table.getSideCards(2).get(table.getSideCards(2).size() - 1).value) {
+            // Player 1 wins
+            System.out.println(" Player 1 won! ");
+            return 1;
+        }
+        if(table.getSideCards(1).get(table.getSideCards(1).size() - 1).value
+                < table.getSideCards(2).get(table.getSideCards(2).size() - 1).value) {
+            // Computer wins
+            System.out.println(" Player 2 won! ");
+            return 2;
+        }
+
+        return -1;
     }
 
     public GameState getGameState() {

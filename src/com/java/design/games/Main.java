@@ -2,6 +2,7 @@ package com.java.design.games;
 
 import com.java.design.games.cards.model.CardGamePlayer;
 import com.java.design.games.cards.model.Deck;
+import com.java.design.games.cards.model.PlayController;
 import com.java.design.games.minesweeper.game.Minesweeper;
 import com.java.design.games.minesweeper.model.Board;
 import com.java.design.games.minesweeper.model.DifficultyLevel;
@@ -19,14 +20,15 @@ public class Main {
         while(sc.hasNext()) {
             int game = Integer.parseInt(sc.nextLine());
 
-            // TODO: while loop doesn't break even after game has ended
-
             switch (game) {
                 case 1:
                     playMinesweeper();
                     break;
                 case 2:
                     playCoinFlip();
+                    break;
+                case 3:
+                    playCardGame();
                     break;
                 default:
                     System.out.println("Invalid Game Selected");
@@ -49,6 +51,30 @@ public class Main {
     }
 
     public static void playCardGame() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to Card Game! ");
+        System.out.println("Please choose a type of Card game: ");
+        System.out.println("1. Poker ");
+        System.out.println("2. BlackJack ");
+        System.out.println("Type the corresponding game number to continue ");
+
+        while(sc.hasNext()) {
+            int game = Integer.parseInt(sc.nextLine());
+
+            switch(game) {
+                case 1:
+                    ;
+                    break;
+                case 2:
+                    ;
+                    break;
+                default:
+                    System.out.println("Invalid Game Selected. Please try again.");
+            }
+        }
+
+        PlayController playController = new PlayController(new Deck(), new CardGamePlayer(1), new CardGamePlayer(2));
+
         Deck testDeck = new Deck();
         testDeck.shuffleDeck();
 

@@ -5,7 +5,8 @@ import com.java.design.games.cards.model.Hand;
 
 /**
  *
- * A Poker class Evaluates Hand for hands with 5 cards. Each hand needs its own instance of this class, and it is created by passing the hand into the constructor
+ * A Poker class Evaluates Hand for hands with 5 cards. Each hand needs its own instance of this class,
+ * and it is created by passing the hand into the constructor
  * To evaluate a player's hand, pass Player.getHand() to the evaluator.
  */
 public class Poker {
@@ -14,7 +15,7 @@ public class Poker {
     private boolean[] haveHandTypes;
     private int[] haveHandValues;
 
-    private Hand thisHand;
+    private final Hand thisHand;
 
     public Poker(Hand hand) {
         this.thisHand = hand;
@@ -38,7 +39,7 @@ public class Poker {
         int[] howMany = new int[13];
 
         for(Card c : thisHand.getCards()) {
-            howMany[c.getValue()-1]++;
+            howMany[c.getValue() - 1]++;
         }
         return howMany;
     }
@@ -46,7 +47,7 @@ public class Poker {
     private void discoverOfAKinds() {
         int[] howMany = matchValues();
 
-        for(int i = 0; i < howMany.length;  i++) {
+        for(int i = 0; i < howMany.length; i++) {
             if(howMany[i] == 4) {
                 haveHandTypes[1] = true;
             }
@@ -101,13 +102,13 @@ public class Poker {
     }
 
     private void discoverStraights() {
-        int howMany[] = matchValues();
+        int[] howMany = matchValues();
         int straight = 0;
         for(int i : howMany) {
             if( i >= 1 ){
                 straight++;
             } else if ( i == 0 ) {
-                straight=0;
+                straight = 0 ;
             }
             if(straight == 5) {
                 haveHandTypes[4] = true;
