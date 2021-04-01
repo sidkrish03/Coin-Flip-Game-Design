@@ -1,6 +1,7 @@
 package com.java.design.games.cards.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,10 +17,10 @@ import java.util.ArrayList;
 public class Deck {
 
     final int numberOfCards = 52;
-    ArrayList<Card> cards;
+    List<Card> cards;
 
     public Deck() {
-        cards = new ArrayList<Card>(numberOfCards);
+        cards = new ArrayList<>(numberOfCards);
 
         for(int i = 0; i < 13; i++) {
             // Set all hearts
@@ -44,9 +45,9 @@ public class Deck {
     }
 
     public void shuffleDeck() {
-        ArrayList<Card> temp = new ArrayList<Card>();
+        List<Card> temp = new ArrayList<>();
         for(int i = 0; i < numberOfCards; i++) {
-            int choose = (int)(Math.random() * (numberOfCards-i));
+            int choose = (int)(Math.random() * (numberOfCards - i));
             temp.add(cards.get(choose));
             cards.remove(choose);
         }
@@ -65,18 +66,27 @@ public class Deck {
     }
 
     public Hand dealHand(int n) {
-        ArrayList<Card> cardsForHand = new ArrayList<Card>();
-        for(int j = 0; j<n; ++j) {
+        List<Card> cardsForHand = new ArrayList<>();
+        for(int j = 0; j < n; j++) {
             cardsForHand.add(cards.remove(0));
         }
         return new Hand(cardsForHand);
+    }
+
+    public Card draw() {
+        if(this.cards.size() == 0) {
+            System.out.println("The deck is empty.");
+        }
+
+        Card card = this.cards.remove(0);
+        return card;
     }
 
     public void addToBottom(Card c) {
         cards.add( c );
     }
 
-    public void addToBottom(ArrayList<Card> c) {
+    public void addToBottom(List<Card> c) {
         cards.addAll( c );
     }
 
@@ -84,7 +94,7 @@ public class Deck {
         cards.add( 0, c );
     }
 
-    public void addToTop(ArrayList<Card> c) {
+    public void addToTop(List<Card> c) {
         cards.addAll( 0, c );
     }
 
