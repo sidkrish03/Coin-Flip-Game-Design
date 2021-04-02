@@ -49,7 +49,7 @@ public class Hand {
 
         for(int i = 0; i < cards.size(); i++) {
             int resultsSize = results.size();
-            for (int j = 0; j < resultsSize; j++) {
+            for(int j = 0; j < resultsSize; j++) {
                 int val = results.get(j);
                 results.set(j, val + cards.get(i).getValue());
 
@@ -68,8 +68,8 @@ public class Hand {
         int max = 0;
 
         for(int i = 0; i < results.size(); i++) {
-            if (results.get(i) <= 21 && results.get(i) > best) best = results.get(i);
-            if (results.get(i) > max) max = results.get(i);
+            if(results.get(i) <= 21 && results.get(i) > best) best = results.get(i);
+            if(results.get(i) > max) max = results.get(i);
         }
 
         if(best != -1) {

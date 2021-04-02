@@ -1,7 +1,10 @@
 package com.java.design.games;
 
+import com.java.design.games.cards.cardgame.BlackJack;
+import com.java.design.games.cards.cardgame.Poker;
 import com.java.design.games.cards.model.CardGamePlayer;
 import com.java.design.games.cards.model.Deck;
+import com.java.design.games.cards.model.Hand;
 import com.java.design.games.cards.model.PlayController;
 import com.java.design.games.minesweeper.game.Minesweeper;
 import com.java.design.games.minesweeper.model.Board;
@@ -51,6 +54,7 @@ public class Main {
     }
 
     public static void playCardGame() {
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Card Game! ");
         System.out.println("Please choose a type of Card game: ");
@@ -63,37 +67,46 @@ public class Main {
 
             switch(game) {
                 case 1:
-                    ;
+                    PlayController pokerPlayController = new PlayController(new Deck(), new CardGamePlayer(1), new CardGamePlayer(2));
+                    Deck pokerDeck = new Deck();
+                    pokerDeck.shuffleDeck();
+
+                    Hand pokerHand = pokerDeck.dealHand(5);
+
+                    Poker poker = new Poker(pokerHand);
+
+                    CardGamePlayer pokerPlayer1 = new CardGamePlayer(1);
+                    pokerPlayer1.setHand(pokerDeck.dealHand(26));
+                    pokerPlayer1.printCurrentHand();
+
+                    CardGamePlayer pokerPlayer2 = new CardGamePlayer(2);
+                    pokerPlayer2.setHand(pokerDeck.dealHand(26));
+                    pokerPlayer2.printCurrentHand();
+
+                    System.out.println("Size of deck now: " + pokerDeck.getSize());
+
                     break;
                 case 2:
-                    ;
+                    PlayController blackJackPlayController = new PlayController(new Deck(), new CardGamePlayer(1), new CardGamePlayer(2));
+                    Deck blackJackDeck = new Deck();
+                    blackJackDeck.shuffleDeck();
+
+                    Hand blackJackHand = blackJackDeck.dealHand(5);
+                    BlackJack blackJack = new BlackJack(blackJackHand);
+
+                    CardGamePlayer blackJackPlayer = new CardGamePlayer(1);
+                    blackJackPlayer.setHand(blackJackDeck.dealHand(26));
+                    blackJackPlayer.printCurrentHand();
+
+                    CardGamePlayer blackJackDealer = new CardGamePlayer(2);
+                    blackJackDealer.setHand(blackJackDeck.dealHand(26));
+                    blackJackDealer.printCurrentHand();
+
+                    System.out.println("Size of deck now: " + blackJackDeck.getSize());
                     break;
                 default:
                     System.out.println("Invalid Game Selected. Please try again.");
             }
         }
-
-        PlayController playController = new PlayController(new Deck(), new CardGamePlayer(1), new CardGamePlayer(2));
-
-        Deck testDeck = new Deck();
-        testDeck.shuffleDeck();
-
-        //d.printDeck();
-
-        //Card a = d.removeTopCard();
-        //a.printThisCard();
-
-        //Hand testHand = testDeck.dealHand(5);
-        //testHand.printHand();
-
-        CardGamePlayer testPlayer1 = new CardGamePlayer(1);
-        testPlayer1.setHand(testDeck.dealHand(26));
-        testPlayer1.printCurrentHand();
-
-        CardGamePlayer testPlayer2 = new CardGamePlayer(2);
-        testPlayer2.setHand(testDeck.dealHand(26));
-        testPlayer2.printCurrentHand();
-
-        System.out.println("Size of deck now: " + testDeck.getSize());
     }
 }
