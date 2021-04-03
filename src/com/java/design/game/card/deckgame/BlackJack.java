@@ -1,8 +1,8 @@
-package com.java.design.games.cards.cardgame;
+package com.java.design.game.card.deckgame;
 
-import com.java.design.games.cards.model.Card;
-import com.java.design.games.cards.model.Deck;
-import com.java.design.games.cards.model.Hand;
+import com.java.design.game.card.model.Card;
+import com.java.design.game.card.model.Deck;
+import com.java.design.game.card.model.Hand;
 
 import java.util.ArrayList;
 import java.util.List;

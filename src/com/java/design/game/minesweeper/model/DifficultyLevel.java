@@ -1,4 +1,4 @@
-package com.java.design.games.minesweeper.model;
+package com.java.design.game.minesweeper.model;
 
 import java.util.Scanner;
 

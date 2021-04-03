@@ -1,8 +1,8 @@
-package com.java.design.games.minesweeper.game;
+package com.java.design.game.minesweeper;
 
-import com.java.design.games.minesweeper.model.Board;
-import com.java.design.games.minesweeper.model.DifficultyLevel;
-import com.java.design.games.minesweeper.model.MineSweeperPlayer;
+import com.java.design.game.minesweeper.model.Board;
+import com.java.design.game.minesweeper.model.DifficultyLevel;
+import com.java.design.game.minesweeper.model.MineSweeperPlayer;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.java.design.games.cards.model;
+package com.java.design.game.card.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class Hand {
         return cards.remove(0);
     }
 
-    public void addToHand(ArrayList<Card> newCards) {
+    public void addToHand(List<Card> newCards) {
         cards.addAll(newCards);
     }
 

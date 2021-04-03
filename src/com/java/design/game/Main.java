@@ -1,15 +1,15 @@
-package com.java.design.games;
+package com.java.design.game;
 
-import com.java.design.games.cards.cardgame.BlackJack;
-import com.java.design.games.cards.cardgame.Poker;
-import com.java.design.games.cards.model.CardGamePlayer;
-import com.java.design.games.cards.model.Deck;
-import com.java.design.games.cards.model.Hand;
-import com.java.design.games.cards.model.PlayController;
-import com.java.design.games.minesweeper.game.Minesweeper;
-import com.java.design.games.minesweeper.model.Board;
-import com.java.design.games.minesweeper.model.DifficultyLevel;
-import com.java.design.games.minesweeper.model.MineSweeperPlayer;
+import com.java.design.game.card.deckgame.BlackJack;
+import com.java.design.game.card.deckgame.Poker;
+import com.java.design.game.card.model.CardGamePlayer;
+import com.java.design.game.card.model.Deck;
+import com.java.design.game.card.model.Hand;
+import com.java.design.game.card.model.PlayController;
+import com.java.design.game.minesweeper.Minesweeper;
+import com.java.design.game.minesweeper.model.Board;
+import com.java.design.game.minesweeper.model.DifficultyLevel;
+import com.java.design.game.minesweeper.model.MineSweeperPlayer;
 
 import java.util.Scanner;
 
@@ -72,7 +72,6 @@ public class Main {
                     pokerDeck.shuffleDeck();
 
                     Hand pokerHand = pokerDeck.dealHand(5);
-
                     Poker poker = new Poker(pokerHand);
 
                     CardGamePlayer pokerPlayer1 = new CardGamePlayer(1);
@@ -93,6 +92,8 @@ public class Main {
 
                     Hand blackJackHand = blackJackDeck.dealHand(5);
                     BlackJack blackJack = new BlackJack(blackJackHand);
+
+                    // TODO: setupPlayer()
 
                     CardGamePlayer blackJackPlayer = new CardGamePlayer(1);
                     blackJackPlayer.setHand(blackJackDeck.dealHand(26));
